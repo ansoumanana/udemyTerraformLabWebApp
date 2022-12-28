@@ -30,7 +30,7 @@ pipeline{
         }
 
         // Stage3 : Publish the source code to Sonarqube
-      /*  stage('Publish to nexus'){
+        stage('Publish to nexus'){
             steps{
                 script {
                    def NexusRepo = Version.endsWith("SNAPSHOT") ? "VinaysDevOpsLab-SNAPSHOT" : "VinaysDevOpsLab-RELEASE"
@@ -42,7 +42,7 @@ pipeline{
                         type: 'war'
                      ]],
                       credentialsId: '4778c691-2333-4159-a2c6-70df66086803',
-                      groupId: 'com.vinaysdevopslab',
+                      groupId: "${GroupId}",
                       nexusUrl: '172.20.10.210:8081',
                       nexusVersion: 'nexus3',
                       protocol: 'http',
@@ -51,7 +51,7 @@ pipeline{
                 }
 
             }
-        }*/
+        }
 
           // Stage 4 : Print some information
         stage ('Print Environment variables'){
