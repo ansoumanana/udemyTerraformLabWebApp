@@ -8,6 +8,7 @@ pipeline{
         ArtifactId = readMavenPom().getArtifactId()
         Version = readMavenPom().getVersion()
         Name = readMavenPom().getName()
+        GroupId = readMavenPom().getGroupId()
     }
 
     stages {
@@ -29,7 +30,7 @@ pipeline{
         }
 
         // Stage3 : Publish the source code to Sonarqube
-        stage('Publish to nexus'){
+      /*  stage('Publish to nexus'){
             steps{
                 script {
                    def NexusRepo = Version.endsWith("SNAPSHOT") ? "VinaysDevOpsLab-SNAPSHOT" : "VinaysDevOpsLab-RELEASE"
@@ -50,7 +51,7 @@ pipeline{
                 }
 
             }
-        }
+        }*/
 
           // Stage 4 : Print some information
         stage ('Print Environment variables'){
