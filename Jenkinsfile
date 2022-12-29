@@ -32,6 +32,7 @@ pipeline{
         // Stage3 : Publish the source code to Sonarqube
         stage('Publish to nexus'){
             steps{
+             echo ' Publishing......'
                 script {
 
                    def NexusRepo = Version.endsWith("SNAPSHOT") ? "udemyDevopslab-snapshot" : "udemyDevopslab-release"
@@ -65,6 +66,7 @@ pipeline{
         }
         stage ('Deploy....'){
             steps {
+            echo "Deploy..."
                 sshPublisher(publishers:
                  [sshPublisherDesc(configName: 'Ansible_Controller',
                  transfers:
