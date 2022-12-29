@@ -6,7 +6,7 @@
 
   <groupId>com.vinaysdevopslab</groupId>
   <artifactId>VinayDevOpsLab</artifactId>
-  <version>1.0.0-RELEASE</version>
+  <version>1.1.0-RELEASE</version>
   <packaging>war</packaging>
 
   <name>VinayDevOpsLab Maven Webapp</name>
