@@ -63,6 +63,23 @@ pipeline{
                 echo "Name is '${Name}'"
             }
         }
+        stage ('Deploy....'){
+            steps {
+                sshPublisher(publishers:
+                 [sshPublisherDesc(configName: 'Ansible_Controller',
+                 transfers:
+                 [
+                    sshTransfer(cleanRemote: false,
+                     execCommand: 'ansible-playbook /opt/playbooks/downloadanddeploy.yaml -i /opt/playbooks/hosts',
+                     execTimeout: 120000,
+                    )
+                 ],
+                 usePromotionTimestamp: false,
+                 useWorkspaceInPromotion: false,
+                 verbose: false
+                 )])
+            }
+        }
         /*stage ('Sonarqube Analysis'){
             steps {
                 echo ' Source code published to Sonarqube for SCA......'
